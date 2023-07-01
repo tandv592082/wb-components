@@ -24,10 +24,12 @@ $disabled-color: #BDBDBD;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:  30px;
+    height: 94px;
     position: relative;
+    padding: 0 30px;
 
-    span, p {
+    span,
+    p {
         flex: 1;
     }
 
@@ -60,6 +62,8 @@ $disabled-color: #BDBDBD;
 
 }
 
+
+
 #wb-screen__content {
     position: fixed;
     top: 0;
@@ -68,9 +72,25 @@ $disabled-color: #BDBDBD;
     background-color: #fff;
     height: 100%;
     border-radius: 30px 30px 0 0;
-    overflow: scroll;
+    overflow: hidden;
     margin-top: 94px;
-    margin-bottom: 94px;
+    &:after {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        width: 100%;
+        height: 18px;
+        background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0));
+    }
+
+    .content-scroll {
+        overflow: auto;
+        height: 100%;
+        margin-bottom: -999px;
+
+    }
+    
 }
 
 #wb-screen__footer {
@@ -79,14 +99,22 @@ $disabled-color: #BDBDBD;
     display: flex;
     justify-content: center;
     width: 100%;
-    background: linear-gradient(360deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%);
-
+    background: white;
+    &:after {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        top: -18px;
+        width: 100%;
+        height: 18px;
+        background-image: linear-gradient(to top, rgb(255, 255, 255), rgba(255, 255, 255, 0));
+    }
 
 
     #wb-screen__btn-confirm {
         width: 100%;
         padding: 14px;
-        margin: 19px 46px 34px;
+        margin: 0 46px 34px;
         color: #FFF;
         text-align: center;
         font-size: 15px;
@@ -125,20 +153,22 @@ $disabled-color: #BDBDBD;
 
     &.term-check-all {
         margin: 40px 40px 24px 40px;
-        background-color: blue;
     }
 
     .term-checkbox {
         margin-right: 12px;
-        width: 24px;
-        height: 24px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
         position: relative;
+
+        &.term-checkbox__all {
+            width: 24px;
+            height: 24px;
+        }
     }
 
-    input[hidden] {
-        width: 24px;
-        height: 24px;
+    input[type="checkbox"] {
         opacity: 0;
         position: absolute;
         top: 0;
@@ -154,11 +184,34 @@ $disabled-color: #BDBDBD;
         background-image: url(../assets/icons/double-check-circle-active.svg);
     }
 
+    input[id^="check-term"]~.input-icon {
+        background-image: url(../assets/icons/check-circle-disabled.svg);
+    }
+
+    input[id^="check-term"]:checked~.input-icon {
+        background-image: url(../assets/icons/check-circle-active.svg);
+    }
+
 
     .input-icon {
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        left: 0;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .icon-check-all {
         width: 24px;
         height: 24px;
-        background-color: red;
+    }
+
+    .term-sumary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1;
     }
 
     .term-text {
@@ -176,6 +229,12 @@ $disabled-color: #BDBDBD;
         line-height: 22px;
     }
 
+    .text-check-all {
+        &.active {
+            color: $primary-color;
+        }
+    }
+
     &.term-check-single {
         padding: 15px;
         margin: 0 30px;
@@ -184,10 +243,15 @@ $disabled-color: #BDBDBD;
 
         .expaned-icon {
             background-image: url(../assets/icons/expaned-down.svg);
-            width: 8px;
-            height: 8px;
-            align-self: flex-end;
+            width: 12px;
+            height: 12px;
+            background-repeat: no-repeat;
+            background-size: contain;
             margin-left: 12px;
+
+            &.expaned {
+                transform: rotateX(-180deg) translateY(4px);
+            }
         }
     }
 
@@ -195,14 +259,37 @@ $disabled-color: #BDBDBD;
         margin-bottom: 18px;
     }
 
-    
+
 }
 
- .term-content__scroll {
-    background-color: red;
+.term-content__scroll {
     height: 100%;
 }
 
 .bg-scroll {
     overflow: auto;
+}
+
+.term-content-details {
+    padding: 0 20px;
+    height: auto;
+    max-height: auto;
+    overflow: hidden;
+
+    .term-detail__title {
+        color: var(--grey-3, #828282);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 20px;
+    }
+
+    p {
+        color: var(--grey-3, #828282);
+        font-size: 14px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+    }
 }
