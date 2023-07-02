@@ -11,185 +11,20 @@
 </head>
 
 <body>
-    <div id="wb-screen__popup">
-        <!-- s: region screen header -->
-        <div id="wb-screen__header">
-            <span id="wb-screen__back">
-            </span>
-
-            <p id="wb-screen__title">
-                Terms of use
-            </p>
-
-            <p id="wb-screen__cancle">
-                Cancle
-            </p>
-        </div>
-        <!-- e: region screen header -->
-
-        <!-- s: region popup content -->
-        <div id="wb-screen__content">
-            <div class="liner-white"></div>
-            <div class="content-scroll">
-                <p class="wb-screen__content-title">
-                    Agree to the terms and conditions to proceed
-                </p>
-    
-                <div id="term-wrapper" class="term-check-all">
-                    <div class="term-checkbox term-checkbox__all">
-                        <input id="check-all" type="checkbox">
-                        <span class="input-icon icon-check-all">
-                        </span>
-                    </div>
-                    <p class="term-text text-check-all">
-                        Agree to all
-                    </p>
-                </div>
-    
-                <div class="term-content__scroll">
-                    <div id="term-wrapper" class="term-check-single">
-                        <div class="term-checkbox">
-                            <input id="check-term-1" type="checkbox">
-                            <span class="input-icon">
-                            </span>
-                        </div>
-                        <div class="term-sumary" id="term-sumary-1">
-                            <p class="term-text">
-                                WON account terms and conditions
-                            </p>
-                            <span class="expaned-icon">
-                            </span>
-                        </div>
-                    </div>
-    
-                    <div class="term-content-details" data-term-for="term-sumary-1">
-                        <p class="term-detail__title">
-                            Article 1 Purpose
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget at dignissim elementum arcu quis
-                            accumsan, interdum. Egestas at rhoncus arcu aliquet egestas massa tristique dignissim
-                            scelerisque. In maecenas nam sed ligula purus sed dolor.
-                        </p>
-                    </div>
-    
-                    <div id="term-wrapper" class="term-check-single">
-                        <div class="term-checkbox">
-                            <input id="check-term-2" type="checkbox">
-                            <span class="input-icon">
-                            </span>
-                        </div>
-                        <div class="term-sumary">
-                            <p class="term-text">
-                                lll
-                            </p>
-                            <span class="expaned-icon">
-                            </span>
-                        </div>
-                    </div>
-    
-                    <div id="term-wrapper" class="term-check-single">
-                        <div class="term-checkbox">
-                            <input id="check-term-3" type="checkbox">
-                            <span class="input-icon">
-                            </span>
-                        </div>
-                        <div class="term-sumary">
-                            <p class="term-text">
-                                General terms and conditions on account and user of account's service
-                            </p>
-                            <span class="expaned-icon">
-                            </span>
-                        </div>
-                    </div>
-    
-                    <div id="term-wrapper" class="term-check-single">
-                        <div class="term-checkbox">
-                            <input id="check-term" type="checkbox">
-                            <span class="input-icon">
-                            </span>
-                        </div>
-                        <div class="term-sumary">
-                            <p class="term-text">
-                                General terms and conditions on account and user of account's service
-                            </p>
-                            <span class="expaned-icon">
-                            </span>
-                        </div>
-                    </div>
-    
-                    <div id="term-wrapper" class="term-check-single">
-                        <div class="term-checkbox">
-                            <input id="check-term-4" type="checkbox">
-                            <span class="input-icon">
-                            </span>
-                        </div>
-                        <div class="term-sumary">
-                            <p class="term-text">
-                                General terms and conditions on account and user of account's service
-                            </p>
-                            <span class="expaned-icon">
-                            </span>
-                        </div>
-                    </div>
-    
-                    <div id="term-wrapper" class="term-check-single">
-                        <div class="term-checkbox">
-                            <input id="check-term-5" type="checkbox">
-                            <span class="input-icon">
-                            </span>
-                        </div>
-                        <div class="term-sumary">
-                            <p class="term-text">
-                                General terms and conditions on account and user of account's service
-                            </p>
-                            <span class="expaned-icon">
-                            </span>
-                        </div>
-                    </div>
-    
-                    <div id="term-wrapper" class="term-check-single">
-                        <div class="term-checkbox">
-                            <input id="check-term" type="checkbox">
-                            <span class="input-icon">
-                            </span>
-                        </div>
-                        <div class="term-sumary">
-                            <p class="term-text">
-                                General terms and conditions on account and user of account's service
-                            </p>
-                            <span class="expaned-icon">
-                            </span>
-                        </div>
-                    </div>
-    
-                    <div id="term-wrapper" class="term-check-single">
-                        <div class="term-checkbox">
-                            <input id="check-term-6" type="checkbox">
-                            <span class="input-icon">
-                            </span>
-                        </div>
-                        <div class="term-sumary">
-                            <p class="term-text">
-                               xfdfnkdnfkdn
-                            </p>
-                            <span class="expaned-icon">
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="wb-screen__footer">
-                <div class="linear-white bottom"></div>
-                <button id="wb-screen__btn-confirm" disabled>
-                    Confirm
-                </button>
-            </div>
-        </div>
-        <!-- e: region popup content -->
+    <div>
+        <input type="text">
+        <button id="open-term">open term</button>
+        <iframe id="wb-frame__popup" src="/popup.html"></iframe>
     </div>
 </body>
 <script src="./index.js"></script>
+<script>
+    $(document).ready(function () {
+        document.getElementById('wb-frame__popup').contentWindow.postMessage('hello world', '*');
+    });
+
+    function closePopup() { $('#wb-frame__popup').hide(); }
+    window.closePopup = closePopup;
+</script>
 
 </html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="wb-screen__popup">
+        <div id="popup-header">
+            <span id="popup-header__back">
+            </span>
+            <div id="popup-header__title">
+                <p>Terms of use</p>
+            </div>
+            <div id="popup-header__cancle">
+                <p>Cancle</p>
+            </div>
+        </div>
+        <div id="popup-content">
+            <div class="linear-white__top"></div>
+            <div class="popup-content__wrapper">
+                <div class="popup-content__title">
+                    <p>
+                        Agree to the terms and conditions to proceed
+                    </p>
+                </div>
+
+                <div class="term term-all">
+                    <div class="term__sumary">
+                        <div class="term__checkbox">
+                            <input id="check-term-all" type="checkbox" class="checkbox">
+                            <span class="checkbox-icon"></span>
+                        </div>
+                        <div class="term__sumary__text">
+                            <p class="text-all">Agree to all</p>
+                            <span class="expaned-icon"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="term">
+                    <div class="term__sumary">
+                        <div class="term__checkbox">
+                            <input id="check-term-6" type="checkbox" class="checkbox">
+                            <span class="checkbox-icon"></span>
+                        </div>
+                        <div class="term__sumary__text">
+                            <p>Won account terms and conditions</p>
+                            <span class="expaned-icon"></span>
+                        </div>
+                    </div>
+
+                    <div class="term__details">
+                        <p class="term__detail__title">Article 1 Purpose</p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget at dignissim elementum arcu
+                            quis accumsan, interdum. Egestas at rhoncus arcu aliquet egestas massa tristique dignissim
+                            scelerisque. In maecenas nam sed ligula purus sed dolor.
+                        </p>
+                        <p>
+                            Article 2 Type of Service
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget at dignissim elementum arcu
+                            quis accumsan, interdum. Egestas at rhoncus arcu aliquet egestas massa tristique dignissim
+                            scelerisque. In maecenas nam sed ligula purus sed dolor.
+                        </p>
+                        <p>
+                            Article 3 Registration and service usage
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget at dignissim elementum arcu
+                            quis accumsan, interdum. Egestas at rhoncus arcu aliquet egestas massa tristique dignissim
+                            scelerisque.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="term">
+                    <div class="term__sumary">
+                        <div class="term__checkbox">
+                            <input id="check-term-1" type="checkbox" class="checkbox">
+                            <span class="checkbox-icon"></span>
+                        </div>
+                        <div class="term__sumary__text">
+                            <p>Won account terms and conditions fndjnfjdnjf fndjnfjdnfjdn</p>
+                            <span class="expaned-icon expaned"></span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="term">
+                    <div class="term__sumary">
+                        <div class="term__checkbox">
+                            <input id="check-term-2" type="checkbox" class="checkbox">
+                            <span class="checkbox-icon"></span>
+                        </div>
+                        <div class="term__sumary__text">
+                            <p>Won account terms and conditions</p>
+                            <span class="expaned-icon"></span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="term">
+                    <div class="term__sumary">
+                        <div class="term__checkbox">
+                            <input id="check-term-2" type="checkbox" class="checkbox">
+                            <span class="checkbox-icon"></span>
+                        </div>
+                        <div class="term__sumary__text">
+                            <p>Won account terms and conditions</p>
+                            <span class="expaned-icon"></span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="term">
+                    <div class="term__sumary">
+                        <div class="term__checkbox">
+                            <input id="check-term-3" type="checkbox" class="checkbox">
+                            <span class="checkbox-icon"></span>
+                        </div>
+                        <div class="term__sumary__text">
+                            <p>Won account terms and conditions</p>
+                            <span class="expaned-icon"></span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="term">
+                    <div class="term__sumary">
+                        <div class="term__checkbox">
+                            <input id="check-term-3" type="checkbox" class="checkbox">
+                            <span class="checkbox-icon"></span>
+                        </div>
+                        <div class="term__sumary__text">
+                            <p>Won account terms and conditions</p>
+                            <span class="expaned-icon"></span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="linear-white__bottom"></div>
+
+        </div>
+        <div id="popup-footer">
+            <button id="popup-footer__button" disabled>
+                Confirm
+            </button>
+        </div>
+    </div>
+</body>
+<script src="index.js">
+
+
+</script>
+
+<script>
+    $("#popup-footer__button").click(function (e) {
+        console.log(parent);
+        parent.closePopup();
+        
+    });
+
+</script>
+
+</html>

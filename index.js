@@ -1,70 +1,84 @@
-
-
-
-
-$('input#check-all').change(function (e) { 
-    e.preventDefault();
-    
-    if(this.checked) {
-        $("input[id^='check-term']").prop('checked', true);
-        $('#wb-screen__btn-confirm').prop('disabled', false);
-        $('.text-check-all').addClass('active');
+/**
+ * handle all sub-checkbox checked
+ * @param {boolean} isAllChecked - is all sub term checked?
+ */
+function handleAllCheckboxChecked(isAllChecked) {
+    if(isAllChecked) {
+        $('#popup-footer__button').prop('disabled', false);
+        $('.text-all').addClass('active');
         return;
     }
 
-    $('.text-check-all').removeClass('active');
-    $("input[id^='check-term']").prop('checked', false);
-    $('#wb-screen__btn-confirm').prop('disabled', true);
-});
+    $('.text-all').removeClass('active');
+    $('#popup-footer__button').prop('disabled', true);
+}
 
+/**
+ * handle single checkbox of term when it changes
+ */
 function handleSingleTermChange() {
     let isAllChecked = true;
 
-    $("input[id^='check-term']").each(function () {
+    $("input[id^='check-term']:not(#check-term-all)").each(function () {
         if(!this.checked) {
             isAllChecked = false;
         }
     });
 
-    if(isAllChecked) {
-        $('input#check-all').prop('checked', true);
-        $('.text-check-all').addClass('active');
-        $('#wb-screen__btn-confirm').prop('disabled', false);
-        return;
-    }
-
-    $('.text-check-all').removeClass('active');
-    $('input#check-all').prop('checked', false);
-    $('#wb-screen__btn-confirm').prop('disabled', true);
+    handleAllCheckboxChecked(isAllChecked);
+    $('.text-all')[isAllChecked ? 'addClass' : 'removeClass']('active');
+    $('input#check-term-all').prop('checked', isAllChecked);
 }
 
-$("input[id^='check-term']").change(function (e) { 
+// listen checkbox check all changes
+$('input#check-term-all').change(function (e) { 
+    e.preventDefault();
+    handleAllCheckboxChecked(this.checked);
+    $("input[id^='check-term']").prop('checked', this.checked); 
+});
+
+// handle sub checkbox change
+$("input[id^='check-term']:not(#check-term-all)").change(function (e) { 
+    e.preventDefault();
     handleSingleTermChange();
 });
 
 let globExpaned = {};
 
-$('.term-sumary').each(function(index) {
+//handle when user click on sumary term 
+$('.term__sumary__text').each(function(index) {
     globExpaned[index] = false;
 
     $(this).click(function(e) {
         e.preventDefault();
 
-        if(globExpaned[index]) {
-            console.log('true')
-            globExpaned[index] = false;
-            $(`div[data-term-for="term-sumary-1"]`).css('max-height', '9999px');
-            $('.expaned-icon').addClass('expaned');
-            return;
-        }
+        $(this).parent().siblings('.term__details').css('max-height', globExpaned[index] ? '9999px' : 0);
 
-        $('.expaned-icon').removeClass('expaned');
-        $(`div[data-term-for="term-sumary-1"]`).css('max-height', 0);
-        globExpaned[index] = true;
+        if(globExpaned[index]) {
+            $(this).find('.expaned-icon').removeClass('expaned');
+        } else {
+            $(this).find('.expaned-icon').addClass('expaned');
+        }
+       
+        globExpaned[index] = !globExpaned[index];
     })
 });
 
-$("#wb-screen__btn-confirm").click(function(e) {
+// handle user click on the footer button
+$("#popup-footer__button").click(function(e) {
     e.preventDefault();
 
+});
+
+// handle user click on the back button
+$('#popup-header__back').click(function(e) {
+    e.preventDefault();
+    $('iframe#wb-frame__popup').hide();
+});
+
+$('#open-term').click(function(e) {
+    e.preventDefault();
+
+    $('iframe#wb-frame__popup').show();
+    window.go = $('iframe#wb-frame__popup');
 })

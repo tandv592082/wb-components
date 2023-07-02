@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+$text-color: #828282;
+$primary-color: #649EFF;
+$button-radius: 15px;
+$base-radius: 15px;
+$expaned-radius: 10px;
+$disabled-color: #BDBDBD;
+
+#wb-screen__popup {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    touch-action: manipulation;
+
+   
+
+    #popup-header {
+
+        height: 80px;
+        margin: 0 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        &__back {
+            background-image: url('../assets/icons/screen-back-white.svg');
+            background-repeat: no-repeat;
+            width: 16px;
+            height: 16px;
+            touch-action: manipulation;
+            flex: 1;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        &__title {
+            flex: 1;
+
+            p {
+                color: #FFF;
+                text-align: center;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+        }
+
+        &__cancle {
+            flex: 1;
+            user-select: none;
+
+            p {
+                color: #FFF;
+                text-align: right;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+    }
+
+    #popup-content {
+        width: 100%;
+        flex: 1;
+        border-radius: 30px 30px 0px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        background-color: white;
+
+        .popup-content__wrapper {
+            flex: 1;
+            overflow: auto;
+        }
+
+        .popup-content__title {
+            text-align: center;
+            padding: 0 94px;
+
+            p {
+                text-align: center;
+                color: $text-color;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 140%;
+                margin: 0;
+                padding: 0;
+            }
+
+        }
+
+        .linear-white {
+
+            &__top,
+            &__bottom {
+                width: 100%;
+                height: 24px;
+            }
+
+            &__top {
+                background-image: linear-gradient(to bottom, white, transparent);
+            }
+
+            &__bottom {
+                background-image: linear-gradient(to top, white, transparent);
+
+            }
+        }
+
+        .term {
+            width: 100%;
+
+            &__sumary {
+                display: flex;
+                padding: 15px;
+                align-items: center;
+                justify-content: space-between;
+                margin: 0 30px;
+                border-radius: 10px;
+                box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.10);
+
+                &__text {
+                    margin-left: 12px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex: 1;
+
+                    p {
+                        margin: 0;
+                        padding: 0;
+                        color: $text-color;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 16px;
+                    }
+
+                    .expaned-icon {
+                        background-image: url('../assets/icons/expaned-down.svg');
+                        height: 4px;
+                        width: 8px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        margin-left: 12px;
+                        transition: transform 0.3s;
+
+                        &.expaned {
+                            transform: rotateX(-180deg) translateY(0px);
+                        }
+                        
+                    }
+
+                }
+            }
+
+            &__checkbox {
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                position: relative;
+
+                input[type="checkbox"] {
+                    width: 18px;
+                    height: 18px;
+                    position: absolute;
+                    opacity: 0;
+                    z-index: 1;
+                    appearance: none;
+                    -webkit-tap-highlight-color: transparent
+                }
+
+                .checkbox-icon {
+                    height: 18px;
+                    z-index: 0;
+                    width: 18px;
+                    border-radius: 50%;
+                    top: 3px;
+                    position: absolute;
+                    right: 0;
+                    background-image: url(../assets/icons/check-circle-disabled.svg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                }
+
+                input[type="checkbox"]:checked~.checkbox-icon {
+                    background-image: url(../assets/icons/check-circle-active.svg);
+                }
+            }
+
+            &__details {
+                margin: 0 30px;
+                overflow: hidden;
+                
+                p {
+                    margin: 14px 0 0 0;
+                    color: $text-color;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 20px;
+                }
+
+                &__title {
+                    margin: 24px 0 0 0;
+                    padding: 0;
+                    font-weight: 700;
+                }
+            }
+
+            &.term-all {
+                .term__sumary {
+                    box-shadow: none;
+                    margin-bottom: 18px;
+
+                    &__text {
+
+
+                        p {
+                            font-size: 18px;
+                            font-family: Roboto;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: 22px;
+                        }
+
+                        p.active {
+                            color: $primary-color;
+                        }
+
+                        .expaned-icon {
+                            display: none;
+                        }
+                    }
+                }
+
+                .term__checkbox {
+
+
+                    input[type="checkbox"] {
+                        width: 24px;
+                        height: 24px;
+                        position: absolute;
+                        opacity: 0;
+                        z-index: 1;
+                    }
+
+                    .checkbox-icon {
+                        height: 24px;
+                        width: 24px;
+                        top: 0;
+                        right: 0;
+                        background-image: url(../assets/icons/double-check-circle-disabled.svg);
+                    }
+
+                    input[type="checkbox"]:checked~.checkbox-icon {
+                        background-image: url(../assets/icons/double-check-circle-active.svg);
+                    }
+                }
+            }
+
+            &:not(last-child) {
+                margin-bottom: 18px;
+            }
+        }
+    }
+
+    #popup-footer {
+        width: 100%;
+        background: white;
+        display: flex;
+
+        &__button {
+            flex: 1;
+            border-radius: 15px;
+            background: $primary-color;
+            outline: none;
+            border: none;
+            text-align: center;
+            margin: 19px 46px 34px;
+            padding: 14px 0;
+            color: white;
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 22px;
+        }
+
+        &__button:disabled {
+            background-color: $disabled-color;
+        }
+
+    }
+}
+
