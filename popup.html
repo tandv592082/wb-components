@@ -35,7 +35,7 @@
                 <div class="term term-all">
                     <div class="term__sumary">
                         <div class="term__checkbox">
-                            <input id="check-term-all" type="checkbox" class="checkbox">
+                            <input id="check-term-all" type="checkbox" class="term__input">
                             <span class="checkbox-icon"></span>
                         </div>
                         <div class="term__sumary__text">
@@ -48,7 +48,7 @@
                 <div class="term">
                     <div class="term__sumary">
                         <div class="term__checkbox">
-                            <input id="check-term-6" type="checkbox" class="checkbox">
+                            <input id="check-term-6" type="checkbox" class="term__input">
                             <span class="checkbox-icon"></span>
                         </div>
                         <div class="term__sumary__text">
@@ -58,13 +58,13 @@
                     </div>
 
                     <div class="term__details">
-                        <p class="term__detail__title">Article 1 Purpose</p>
+                        <p class="term__details__title">Article 1 Purpose</p>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget at dignissim elementum arcu
                             quis accumsan, interdum. Egestas at rhoncus arcu aliquet egestas massa tristique dignissim
                             scelerisque. In maecenas nam sed ligula purus sed dolor.
                         </p>
-                        <p>
+                        <p class="term__details__title">
                             Article 2 Type of Service
                         </p>
                         <p>
@@ -72,14 +72,46 @@
                             quis accumsan, interdum. Egestas at rhoncus arcu aliquet egestas massa tristique dignissim
                             scelerisque. In maecenas nam sed ligula purus sed dolor.
                         </p>
-                        <p>
+                        <p class="term__details__title">
                             Article 3 Registration and service usage
                         </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget at dignissim elementum arcu
-                            quis accumsan, interdum. Egestas at rhoncus arcu aliquet egestas massa tristique dignissim
-                            scelerisque.
-                        </p>
+
+                        <div class="sub-term">
+                            <div class="term__checkbox">
+                                <input  type="checkbox" class="term__input" sub-term-for="check-term-6">
+                                <span class="checkbox-icon"></span>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget at dignissim elementum arcu
+                                quis accumsan, interdum. Egestas at rhoncus arcu aliquet egestas massa tristique dignissim
+                                scelerisque.
+                            </p>
+                        </div>
+
+                        <div class="sub-term">
+                            <div class="term__checkbox">
+                                <input type="checkbox" class="term__input" sub-term-for="check-term-6">
+                                <span class="checkbox-icon"></span>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget at dignissim elementum arcu
+                                quis accumsan, interdum. Egestas at rhoncus arcu aliquet egestas massa tristique dignissim
+                                scelerisque.
+                            </p>
+                        </div>
+
+                        <div class="sub-term">
+                            <div class="term__checkbox">
+                                <input  type="checkbox" class="term__input" sub-term-for="check-term-6">
+                                <span class="checkbox-icon"></span>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget at dignissim elementum arcu
+                                quis accumsan, interdum. Egestas at rhoncus arcu aliquet egestas massa tristique dignissim
+                                scelerisque.
+                            </p>
+                        </div>
+                        
                     </div>
                 </div>
 
@@ -87,7 +119,7 @@
                 <div class="term">
                     <div class="term__sumary">
                         <div class="term__checkbox">
-                            <input id="check-term-1" type="checkbox" class="checkbox">
+                            <input id="check-term-1" type="checkbox" class="term__input">
                             <span class="checkbox-icon"></span>
                         </div>
                         <div class="term__sumary__text">
@@ -102,7 +134,7 @@
                 <div class="term">
                     <div class="term__sumary">
                         <div class="term__checkbox">
-                            <input id="check-term-2" type="checkbox" class="checkbox">
+                            <input id="check-term-2" type="checkbox" class="term__input">
                             <span class="checkbox-icon"></span>
                         </div>
                         <div class="term__sumary__text">
@@ -117,7 +149,7 @@
                 <div class="term">
                     <div class="term__sumary">
                         <div class="term__checkbox">
-                            <input id="check-term-2" type="checkbox" class="checkbox">
+                            <input id="check-term-2" type="checkbox" class="term__input">
                             <span class="checkbox-icon"></span>
                         </div>
                         <div class="term__sumary__text">
@@ -132,7 +164,7 @@
                 <div class="term">
                     <div class="term__sumary">
                         <div class="term__checkbox">
-                            <input id="check-term-3" type="checkbox" class="checkbox">
+                            <input id="check-term-3" type="checkbox" class="term__input">
                             <span class="checkbox-icon"></span>
                         </div>
                         <div class="term__sumary__text">
@@ -147,7 +179,7 @@
                 <div class="term">
                     <div class="term__sumary">
                         <div class="term__checkbox">
-                            <input id="check-term-3" type="checkbox" class="checkbox">
+                            <input id="check-term-3" type="checkbox" class="term__input">
                             <span class="checkbox-icon"></span>
                         </div>
                         <div class="term__sumary__text">
@@ -176,8 +208,7 @@
 
 <script>
     $("#popup-footer__button").click(function (e) {
-        console.log(parent);
-        parent.closePopup();
+        window.parent.closePopup();
         
     });
 

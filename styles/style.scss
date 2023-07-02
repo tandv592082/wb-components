@@ -26,7 +26,7 @@ $disabled-color: #BDBDBD;
     justify-content: space-between;
     touch-action: manipulation;
 
-   
+
 
     #popup-header {
 
@@ -113,14 +113,19 @@ $disabled-color: #BDBDBD;
             &__bottom {
                 width: 100%;
                 height: 24px;
+                opacity: 0;
             }
 
             &__top {
                 background-image: linear-gradient(to bottom, white, transparent);
+                background: linear-gradient(transparent, gray);
+                pointer-events: none;
             }
 
             &__bottom {
                 background-image: linear-gradient(to top, white, transparent);
+                background: linear-gradient(transparent, gray);
+                pointer-events: none;
 
             }
         }
@@ -167,7 +172,7 @@ $disabled-color: #BDBDBD;
                         &.expaned {
                             transform: rotateX(-180deg) translateY(0px);
                         }
-                        
+
                     }
 
                 }
@@ -213,7 +218,9 @@ $disabled-color: #BDBDBD;
             &__details {
                 margin: 0 30px;
                 overflow: hidden;
-                
+                max-height: 0;
+                position: relative;
+
                 p {
                     margin: 14px 0 0 0;
                     color: $text-color;
@@ -221,12 +228,26 @@ $disabled-color: #BDBDBD;
                     font-style: normal;
                     font-weight: 400;
                     line-height: 20px;
+                    flex: 1;
                 }
 
                 &__title {
-                    margin: 24px 0 0 0;
+                    margin: 24px 0 0 0 !important;
                     padding: 0;
-                    font-weight: 700;
+                    font-weight: 700 !important;
+                }
+
+                .sub-term {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    p {
+                        margin-left: 18px;
+                    }
+
+                    .checkbox-icon {
+                        left: 0;
+                    }
                 }
             }
 
@@ -315,4 +336,3 @@ $disabled-color: #BDBDBD;
 
     }
 }
-

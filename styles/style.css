@@ -90,12 +90,17 @@ body {
 #wb-screen__popup #popup-content .linear-white__top, #wb-screen__popup #popup-content .linear-white__bottom {
   width: 100%;
   height: 24px;
+  opacity: 0;
 }
 #wb-screen__popup #popup-content .linear-white__top {
   background-image: linear-gradient(to bottom, white, transparent);
+  background: linear-gradient(transparent, gray);
+  pointer-events: none;
 }
 #wb-screen__popup #popup-content .linear-white__bottom {
   background-image: linear-gradient(to top, white, transparent);
+  background: linear-gradient(transparent, gray);
+  pointer-events: none;
 }
 #wb-screen__popup #popup-content .term {
   width: 100%;
@@ -176,6 +181,8 @@ body {
 #wb-screen__popup #popup-content .term__details {
   margin: 0 30px;
   overflow: hidden;
+  max-height: 0;
+  position: relative;
 }
 #wb-screen__popup #popup-content .term__details p {
   margin: 14px 0 0 0;
@@ -184,11 +191,23 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+  flex: 1;
 }
 #wb-screen__popup #popup-content .term__details__title {
-  margin: 24px 0 0 0;
+  margin: 24px 0 0 0 !important;
   padding: 0;
-  font-weight: 700;
+  font-weight: 700 !important;
+}
+#wb-screen__popup #popup-content .term__details .sub-term {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+#wb-screen__popup #popup-content .term__details .sub-term p {
+  margin-left: 18px;
+}
+#wb-screen__popup #popup-content .term__details .sub-term .checkbox-icon {
+  left: 0;
 }
 #wb-screen__popup #popup-content .term.term-all .term__sumary {
   box-shadow: none;

@@ -1,3 +1,16 @@
+function isAllInputChecked(selector) {
+    let isAllInputChecked = true;
+
+    $(selector).each(function () {
+        if(!this.checked) {
+            isAllInputChecked = false;
+            return;
+        }
+    });
+
+    return isAllInputChecked;
+}
+
 /**
  * handle all sub-checkbox checked
  * @param {boolean} isAllChecked - is all sub term checked?
@@ -16,32 +29,40 @@ function handleAllCheckboxChecked(isAllChecked) {
 /**
  * handle single checkbox of term when it changes
  */
-function handleSingleTermChange() {
-    let isAllChecked = true;
-
-    $("input[id^='check-term']:not(#check-term-all)").each(function () {
-        if(!this.checked) {
-            isAllChecked = false;
-        }
-    });
+function handleSingleTermChange(term) {
+    let isAllChecked = isAllInputChecked(".term__input:not(input#check-term-all)");
 
     handleAllCheckboxChecked(isAllChecked);
     $('.text-all')[isAllChecked ? 'addClass' : 'removeClass']('active');
     $('input#check-term-all').prop('checked', isAllChecked);
+
+    const subTermId = $(term).attr('sub-term-for');
+    const checked = $(term).prop('checked');
+    
+    // is sub term case
+    if(isAllInputChecked(`input[sub-term-for="${subTermId}"]`)) {
+        $(`input#${subTermId}`).prop('checked', true);
+        return;
+    }
+
+    //  is sumary term case
+    $(`input[sub-term-for="${subTermId}"]`).prop(checked);
+
 }
 
 // listen checkbox check all changes
 $('input#check-term-all').change(function (e) { 
     e.preventDefault();
     handleAllCheckboxChecked(this.checked);
-    $("input[id^='check-term']").prop('checked', this.checked); 
+    $(".term__input:not(input#check-term-all)").prop('checked', this.checked); 
 });
 
-// handle sub checkbox change
-$("input[id^='check-term']:not(#check-term-all)").change(function (e) { 
+// handle single term not term all change
+$(".term__input:not(input#check-term-all)").change(function (e) { 
     e.preventDefault();
-    handleSingleTermChange();
+    handleSingleTermChange(this);
 });
+
 
 let globExpaned = {};
 
@@ -52,7 +73,7 @@ $('.term__sumary__text').each(function(index) {
     $(this).click(function(e) {
         e.preventDefault();
 
-        $(this).parent().siblings('.term__details').css('max-height', globExpaned[index] ? '9999px' : 0);
+        $(this).parent().siblings('.term__details').css('max-height', globExpaned[index] ?  0 : '9999px');
 
         if(globExpaned[index]) {
             $(this).find('.expaned-icon').removeClass('expaned');
