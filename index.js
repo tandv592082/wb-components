@@ -30,23 +30,21 @@ function handleAllCheckboxChecked(isAllChecked) {
  * handle single checkbox of term when it changes
  */
 function handleSingleTermChange(term) {
-    let isAllChecked = isAllInputChecked(".term__input:not(input#check-term-all)");
-
-    handleAllCheckboxChecked(isAllChecked);
-    $('.text-all')[isAllChecked ? 'addClass' : 'removeClass']('active');
-    $('input#check-term-all').prop('checked', isAllChecked);
-
-    const subTermId = $(term).attr('sub-term-for');
+    let subTermId = $(term).attr('sub-term-for');
     const checked = $(term).prop('checked');
     
     // is sub term case
-    if(isAllInputChecked(`input[sub-term-for="${subTermId}"]`)) {
-        $(`input#${subTermId}`).prop('checked', true);
-        return;
+    if(subTermId) {
+        $(`input#${subTermId}`).prop('checked', isAllInputChecked(`input[sub-term-for="${subTermId}"]`));
+    } else {
+         //  is sumary term case
+        subTermId = $(term).attr('id');
+        $(`input[sub-term-for="${subTermId}"]`).prop('checked', checked);
     }
-
-    //  is sumary term case
-    $(`input[sub-term-for="${subTermId}"]`).prop(checked);
+    
+    let isAllChecked = isAllInputChecked(".term__input:not(input#check-term-all)");
+    handleAllCheckboxChecked(isAllChecked);
+    $('input#check-term-all').prop('checked', isAllChecked);
 
 }
 
