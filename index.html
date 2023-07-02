@@ -12,19 +12,20 @@
 
 <body>
     <div>
-        <input type="text">
+        <input type="checkbox">
         <button id="open-term">open term</button>
-        <iframe id="wb-frame__popup" src="/popup.html"></iframe>
+
     </div>
 </body>
-<script src="./index.js"></script>
 <script>
-    $(document).ready(function () {
-        document.getElementById('wb-frame__popup').contentWindow.postMessage('hello world', '*');
-    });
-
-    function closePopup() { $('#wb-frame__popup').hide(); }
-    window.closePopup = closePopup;
+    $('#open-term').click(function (e) {
+        e.preventDefault();
+        $('body').append(`<iframe id="wb-frame__popup" src="/popup.html"></iframe>`)
+        $('iframe#wb-frame__popup').show();
+        window.closePopup = () =>  $('#wb-frame__popup').hide();
+        window.termChecked = $('input[type="checkbox"]').prop('checked');;
+    })
+    
 </script>
 
 </html>

@@ -1,3 +1,8 @@
+$(document).ready(function() {
+    console.log(window.parent.termChecked);
+    $('input[type="checkbox"]').prop('checked', window.parent.termChecked);
+})
+
 function isAllInputChecked(selector) {
     let isAllInputChecked = true;
 
@@ -95,9 +100,3 @@ $('#popup-header__back').click(function(e) {
     $('iframe#wb-frame__popup').hide();
 });
 
-$('#open-term').click(function(e) {
-    e.preventDefault();
-
-    $('iframe#wb-frame__popup').show();
-    window.go = $('iframe#wb-frame__popup');
-})
