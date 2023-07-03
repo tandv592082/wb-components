@@ -1,9 +1,4 @@
-Popup.extractPayloadFromParent((payload) => {
-    const { termChecked } = payload;
-    handleAllCheckboxChecked(termChecked);
-    $(".term__input").prop('checked', termChecked);
-    $('#popup-footer__button').prop('disabled', !termChecked);
-})
+
 
 
 function isAllInputChecked(selector) {
@@ -117,4 +112,12 @@ $('#popup-header__cancle').click(function (e) {
 
 const parentCallback = Popup.extractCallbacksFromParent();
 
+$(document).ready(() => {
+    Popup.extractPayloadFromParent((payload) => {
+        const { termChecked } = payload;
+        handleAllCheckboxChecked(termChecked);
+        $(".term__input").prop('checked', termChecked);
+        $('#popup-footer__button').prop('disabled', !termChecked);
+    })
+})
 
