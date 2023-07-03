@@ -24,27 +24,19 @@
         closePopup: () => popup.close()
     }
 
-    const payload = {
-        termChecked: $('input[type="checkbox"]').prop('checked')
-    }
-
-    popup.setPayload(payload);
     popup.setCallbacks(fns);
 
     $('#open-term').click(function (e) {
         e.preventDefault();
+        popup.setPayload({
+            termChecked: $('input[type="checkbox"]').prop('checked')
+        });
         popup.show();
     });
 
     Popup.extractMessageFromIframe(window.location.origin, (payload) => {
         $('input[type=checkbox]').prop('checked', payload.allChecked);
     });
-
-    $('input[type=checkbox]').change(function (e) {
-        popup.setPayload({
-            termChecked: $('input[type="checkbox"]').prop('checked')
-        });
-    })
 
 </script>
 
