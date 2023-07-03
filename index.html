@@ -36,8 +36,7 @@
         popup.show();
     });
 
-    Popup.extractMessageFromIframe('http://127.0.0.1:5500', (payload) => {
-        console.log(payload);
+    Popup.extractMessageFromIframe(window.location.href, (payload) => {
         $('input[type=checkbox]').prop('checked', payload.allChecked);
     });
 

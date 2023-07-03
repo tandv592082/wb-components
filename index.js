@@ -1,3 +1,12 @@
+Popup.extractPayloadFromParent((payload) => {
+    const { termChecked } = payload;
+    handleAllCheckboxChecked(termChecked);
+    $(".term__input").prop('checked', termChecked);
+    $('#popup-footer__button').prop('disabled', !termChecked);
+    console.log("OK");
+})
+
+
 function isAllInputChecked(selector) {
     let isAllInputChecked = true;
 
@@ -103,16 +112,10 @@ $('#popup-header__cancle').click(function (e) {
     
     Popup.postMessageToParent( {
         allChecked: $('#check-term-all').prop('checked')
-    }, 'http://127.0.0.1:5500');
+    }, '*');
     parentCallback.closePopup();
 });
 
 const parentCallback = Popup.extractCallbacksFromParent();
 
-Popup.extractPayloadFromParent((payload) => {
-    const { termChecked } = payload;
-    handleAllCheckboxChecked(termChecked);
-    $(".term__input").prop('checked', termChecked);
-    $('#popup-footer__button').prop('disabled', !termChecked);
-    console.log("OK");
-})
+
