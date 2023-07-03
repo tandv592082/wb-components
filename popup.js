@@ -138,6 +138,7 @@ class Popup {
                     console.log(event);
                   
                     // Verify that the message is from the expected iframe
+                    console.log(url);
                     if (event.origin.includes(url)) {
                         // Handle the received message
                         if(JSON.stringify(received) !== JSON.stringify(event.data)) {
