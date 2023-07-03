@@ -14,25 +14,23 @@
     <div>
         <input type="checkbox">
         <button id="open-term">open term</button>
-        <div class="loading"><span></span></div>
     </div>
 </body>
 <script src="./popup.js"></script>
 <script>
-    const popup = new Popup('/popup.html', { cached: true });
-
+    const popup = new Popup('/popup.html');
     const fns = {
         closePopup: () => popup.close(),
-        closeLoading: () =>  $('div.loading').hide()
     }
 
-    popup.setPayload({
-            termChecked: $('input[type="checkbox"]').prop('checked')
-        })
+    const payload = {
+        termChecked: $('input[type="checkbox"]').prop('checked')
+    }
+
+    popup.setPayload(payload);
     popup.setCallbacks(fns);
 
     $('#open-term').click(function (e) {
-        $('div.loading').css('display', 'flex');
         e.preventDefault();
         popup.show();
     });

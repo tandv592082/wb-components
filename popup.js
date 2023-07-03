@@ -1,8 +1,50 @@
 const IFRAME_ID = 'wb-frame__popup';
 const IFRAME_SELETOR = `#${IFRAME_ID}`;
+const LOADING_ASSET_URL = 'https://i.stack.imgur.com/FhHRx.gif';
+const POPUP_FRAME_STYLE = `
+<style>
+    iframe#wb-frame__popup {
+        margin: 0;
+        display: block;
+        border: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 999999;
+        outline: none;
+        display: none;
+    }
+</style>
+`
+const LOADING_TEMPLATE = `
+<style>
+    div#popup__loading {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: none;
+        justify-content: center !important;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.11);
+    }
+    div#popup__loading span {
+        width: 232px;
+        height: 32px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url(${LOADING_ASSET_URL});
+    }
+</style>
+<div id="popup__loading"><span></span></div>
+`
 
 class Popup {
-    constructor(url, options = {}) {
+    constructor(url, options = {showLoading: true, cached: false}) {
         this.url = url;
         this.options = options;
         this.isLoaded = false;
@@ -14,24 +56,21 @@ class Popup {
             $(IFRAME_SELETOR).hide();
         } else {
             $(IFRAME_SELETOR).remove();
+            this.isLoaded = false;
         }
-
-        this.isLoaded = false;
     }
 
     setPayload(payload = {}) {
         this.payload = payload;
     }
 
-    onReady(callback = () => { }) {
-        callback();
-    }
-
     show() {
-        const iframeElm = `<iframe id="${IFRAME_ID}" src="${this.url}"></iframe>`;
+        const IFRAME_ELM = `<iframe id="${IFRAME_ID}" src="${this.url}"></iframe>`;
+
         // check iframe is exist
         if (!this.isLoaded) {
-            $('body').append(iframeElm);
+            $('body').append(IFRAME_ELM, POPUP_FRAME_STYLE);
+            this.showLoading();
         }
 
         if (!this?.options?.showOnReady) {
@@ -43,20 +82,34 @@ class Popup {
 
             $(IFRAME_SELETOR).on('load', function () {
                 $(IFRAME_SELETOR)[0].contentWindow.postMessage(_self.payload, '*');
+
                 if (_self?.options?.showOnReady) {
                     $(IFRAME_SELETOR).show();
                 }
                 _self.isLoaded = true;
-                _self.onReady();
+                _self.hideLoading();
             });
         }
 
         $(IFRAME_SELETOR)[0].contentWindow.postMessage(this.payload, '*');
-        this.onReady();
     }
 
     setCallbacks(fns) {
         window.iframeFns = fns;
+    }
+
+    showLoading() {
+        if(this?.options?.showLoading) {
+            if(!$('div#popup__loading').length) {
+                $('body').append(LOADING_TEMPLATE);
+            }
+    
+            $('div#popup__loading').css('display', 'flex');
+        }
+    }
+
+    hideLoading() {
+        window.parent.jQuery('div#popup__loading').hide();
     }
 
     static postMessageToParent(url, payload) {
