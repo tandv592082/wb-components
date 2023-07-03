@@ -88,6 +88,9 @@ $('.term__sumary__text').each(function (index) {
 
 // handle user click on the footer button
 $("#popup-footer__button").click(function (e) {
+    Popup.postMessageToParent( {
+        allChecked: $('#check-term-all').prop('checked')
+    }, '*');
    parentCallback.closePopup();
 });
 
