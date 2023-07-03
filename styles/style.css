@@ -94,12 +94,10 @@ body {
 }
 #wb-screen__popup #popup-content .linear-white__top {
   background-image: linear-gradient(to bottom, white, transparent);
-  background: linear-gradient(transparent, gray);
   pointer-events: none;
 }
 #wb-screen__popup #popup-content .linear-white__bottom {
   background-image: linear-gradient(to top, white, transparent);
-  background: linear-gradient(transparent, gray);
   pointer-events: none;
 }
 #wb-screen__popup #popup-content .term {

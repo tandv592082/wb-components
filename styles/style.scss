@@ -118,15 +118,12 @@ $disabled-color: #BDBDBD;
 
             &__top {
                 background-image: linear-gradient(to bottom, white, transparent);
-                background: linear-gradient(transparent, gray);
                 pointer-events: none;
             }
 
             &__bottom {
                 background-image: linear-gradient(to top, white, transparent);
-                background: linear-gradient(transparent, gray);
                 pointer-events: none;
-
             }
         }
 

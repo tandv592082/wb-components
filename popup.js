@@ -139,12 +139,8 @@ class Popup {
                     // Verify that the message is from the expected iframe
                     if (event.origin.includes(url)) {
                         // Handle the received message
-                        if(JSON.stringify(received) !== JSON.stringify(event.data)) {
-                            received = event.data;
-                            callback(event.data);
-                        }
-                        
-
+                        received = event.data;
+                        callback(event.data);
                     }
                 });
 
