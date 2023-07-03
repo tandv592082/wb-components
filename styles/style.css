@@ -49,8 +49,7 @@ body {
   flex: 1;
   -webkit-user-select: none;
      -moz-user-select: none;
-          -ms-user-select: none;
-      user-select: none;
+          user-select: none;
 }
 #wb-screen__popup #popup-header__cancle p {
   color: #FFF;
@@ -270,4 +269,4 @@ body {
 }
 #wb-screen__popup #popup-footer__button:disabled {
   background-color: #BDBDBD;
-}
+}/*# sourceMappingURL=style.css.map */

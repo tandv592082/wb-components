@@ -12,10 +12,10 @@ class Popup {
     close() {
         if (this?.options?.cached) {
             $(IFRAME_SELETOR).hide();
-            return;
+        } else {
+            $(IFRAME_SELETOR).remove();
         }
 
-        $(IFRAME_SELETOR).remove();
         this.isLoaded = false;
     }
 
@@ -23,30 +23,36 @@ class Popup {
         this.payload = payload;
     }
 
-    show(onReady = () => {}) {
+    onReady(callback = () => { }) {
+        callback();
+    }
+
+    show() {
         const iframeElm = `<iframe id="${IFRAME_ID}" src="${this.url}"></iframe>`;
-        
         // check iframe is exist
         if (!this.isLoaded) {
             $('body').append(iframeElm);
         }
 
-        $(IFRAME_SELETOR).show();
+        if (!this?.options?.showOnReady) {
+            $(IFRAME_SELETOR).show();
+        }
 
         if (!this.isLoaded) {
             const _self = this;
 
-            $(IFRAME_SELETOR).on('load', function()  {
-                onReady();
-               _self.isLoaded = true;
+            $(IFRAME_SELETOR).on('load', function () {
                 $(IFRAME_SELETOR)[0].contentWindow.postMessage(_self.payload, '*');
+                if (_self?.options?.showOnReady) {
+                    $(IFRAME_SELETOR).show();
+                }
+                _self.isLoaded = true;
+                _self.onReady();
             });
-
-            return;
-
         }
 
         $(IFRAME_SELETOR)[0].contentWindow.postMessage(this.payload, '*');
+        this.onReady();
     }
 
     setCallbacks(fns) {
