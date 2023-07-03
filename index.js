@@ -90,18 +90,21 @@ $("#popup-footer__button").click(function (e) {
 
 // handle user click on the back button
 $('#popup-header__back').click(function (e) {
-   parentCallback.closePopup();
-   Popup.postMessageToParent('http://127.0.0.1:5500', {
-    allChecked: $('#check-term-all').prop('checked')
-});
+   
+   Popup.postMessageToParent({
+        allChecked: $('#check-term-all').prop('checked')
+    });
+
+    parentCallback.closePopup();
 });
 
 // handle user click on the back button
 $('#popup-header__cancle').click(function (e) {
-    parentCallback.closePopup();
+    
     Popup.postMessageToParent( {
         allChecked: $('#check-term-all').prop('checked')
-    }, '*');
+    }, 'http://127.0.0.1:5500');
+    parentCallback.closePopup();
 });
 
 const parentCallback = Popup.extractCallbacksFromParent();

@@ -52,6 +52,8 @@ class Popup {
     }
 
     close() {
+        
+
         if (this?.options?.cached) {
             $(IFRAME_SELETOR).hide();
         } else {
@@ -98,6 +100,7 @@ class Popup {
         window.iframeFns = fns;
     }
 
+
     showLoading() {
         if(this?.options?.showLoading) {
             if(!$('div#popup__loading').length) {
@@ -112,11 +115,10 @@ class Popup {
         window.parent.jQuery('div#popup__loading').hide();
     }
 
-    static postMessageToParent(url, payload) {
+    static postMessageToParent(payload, url = '*') { 
         try {
             if (window) {
-                const parentWindow = window.parent;
-                parentWindow.postMessage(payload, url);
+                window.parent.postMessage(payload, url);
                 return;
             }
 
@@ -127,14 +129,23 @@ class Popup {
     }
 
     static extractMessageFromIframe(url, callback) {
+        let received = null;
+
         try {
             if (window) {
                 // Listen for messages from the iframe
                 window.addEventListener('message', function (event) {
+                  
                     // Verify that the message is from the expected iframe
                     if (event.origin.includes(url)) {
                         // Handle the received message
-                        callback(event.data);
+                        if(JSON.stringify(received) !== JSON.stringify(event.data)) {
+                            console.log(true);
+                            received = event.data;
+                            callback(event.data);
+                        }
+                        
+
                     }
                 });
 

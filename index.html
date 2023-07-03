@@ -20,7 +20,7 @@
 <script>
     const popup = new Popup('/popup.html');
     const fns = {
-        closePopup: () => popup.close(),
+        closePopup: () => popup.close()
     }
 
     const payload = {
@@ -35,10 +35,8 @@
         popup.show();
     });
 
-    Popup.extractMessageFromIframe('', (payload) => {
-        console.log(
-            payload, 'payload'
-        );
+    Popup.extractMessageFromIframe('http://127.0.0.1:5500', (payload) => {
+        console.log(payload);
         $('input[type=checkbox]').prop('checked', payload.allChecked);
     });
 
