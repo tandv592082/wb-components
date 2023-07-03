@@ -114,4 +114,5 @@ Popup.extractPayloadFromParent((payload) => {
     handleAllCheckboxChecked(termChecked);
     $(".term__input").prop('checked', termChecked);
     $('#popup-footer__button').prop('disabled', !termChecked);
+    console.log("OK");
 })
