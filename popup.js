@@ -135,6 +135,7 @@ class Popup {
             if (window) {
                 // Listen for messages from the iframe
                 window.addEventListener('message', function (event) {
+                    console.log(event);
                   
                     // Verify that the message is from the expected iframe
                     if (event.origin.includes(url)) {
