@@ -17,15 +17,38 @@
 
     </div>
 </body>
+<script src="./popup.js"></script>
 <script>
+    const popup = new Popup('/popup.html', { cached: true });
+
+    const fns = {
+        closePopup: () => popup.close()
+    }
+
+    popup.setPayload({
+        termChecked: $('input[type="checkbox"]').prop('checked')
+    });
+
+    popup.setCallbacks(fns);
+
     $('#open-term').click(function (e) {
         e.preventDefault();
-        $('body').append(`<iframe id="wb-frame__popup" src="/popup.html"></iframe>`)
-        $('iframe#wb-frame__popup').show();
-        window.closePopup = () =>  $('#wb-frame__popup').hide();
-        window.termChecked = $('input[type="checkbox"]').prop('checked');;
+        popup.show();
+    });
+
+    Popup.extractMessageFromIframe('', (payload) => {
+        console.log(
+            payload, 'payload'
+        );
+        $('input[type=checkbox]').prop('checked', payload.allChecked);
+    });
+
+    $('input[type=checkbox]').change(function (e) {
+        popup.setPayload({
+            termChecked: $('input[type="checkbox"]').prop('checked')
+        });
     })
-    
+
 </script>
 
 </html>

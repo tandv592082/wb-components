@@ -11,3 +11,14 @@ iframe#wb-frame__popup {
     outline: none;
     display: none;
 }
+
+div.loading {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+}
