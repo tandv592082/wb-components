@@ -36,7 +36,7 @@
         popup.show();
     });
 
-    Popup.extractMessageFromIframe(window.location.href, (payload) => {
+    Popup.extractMessageFromIframe(window.location.origin, (payload) => {
         $('input[type=checkbox]').prop('checked', payload.allChecked);
     });
 
