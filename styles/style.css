@@ -130,8 +130,8 @@ body {
 }
 #wb-screen__popup #popup-content .term__sumary__text .expaned-icon {
   background-image: url("../assets/icons/expaned-down.svg");
-  height: 4px;
-  width: 8px;
+  height: 8px;
+  width: 12px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

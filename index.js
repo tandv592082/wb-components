@@ -1,6 +1,3 @@
-
-
-
 function isAllInputChecked(selector) {
     let isAllInputChecked = true;
 
