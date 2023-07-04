@@ -200,9 +200,10 @@ body {
   display: flex;
   align-items: center;
   position: relative;
+  padding: 8px 0;
 }
 #wb-screen__popup #popup-content .term__details .sub-term p {
-  margin-left: 18px;
+  margin: 0 0 0 18px;
 }
 #wb-screen__popup #popup-content .term__details .sub-term .checkbox-icon {
   left: 0;

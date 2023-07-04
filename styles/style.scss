@@ -238,8 +238,9 @@ $disabled-color: #BDBDBD;
                     display: flex;
                     align-items: center;
                     position: relative;
+                    padding: 8px 0;
                     p {
-                        margin-left: 18px;
+                        margin: 0 0 0 18px;
                     }
 
                     .checkbox-icon {
