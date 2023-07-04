@@ -214,13 +214,10 @@ body {
 }
 #wb-screen__popup #popup-content .term.term-all .term__sumary__text p {
   font-size: 18px;
-  font-family: Roboto;
+  color: #649EFF;
   font-style: normal;
   font-weight: 700;
   line-height: 22px;
-}
-#wb-screen__popup #popup-content .term.term-all .term__sumary__text p.active {
-  color: #649EFF;
 }
 #wb-screen__popup #popup-content .term.term-all .term__sumary__text .expaned-icon {
   display: none;

@@ -4,7 +4,6 @@ const params = new URLSearchParams(window.location.search);
 
 // Get the value of a specific parameter
 const locale = params.get('locale');
-console.log(locale);
 let data = null;
 
 if(!locale || locale?.toLowerCase()?.startsWith('vi')) {

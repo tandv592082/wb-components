@@ -255,18 +255,12 @@ $disabled-color: #BDBDBD;
                     margin-bottom: 18px;
 
                     &__text {
-
-
                         p {
                             font-size: 18px;
-                            font-family: Roboto;
+                            color: $primary-color;
                             font-style: normal;
                             font-weight: 700;
                             line-height: 22px;
-                        }
-
-                        p.active {
-                            color: $primary-color;
                         }
 
                         .expaned-icon {
@@ -276,8 +270,6 @@ $disabled-color: #BDBDBD;
                 }
 
                 .term__checkbox {
-
-
                     input[type="checkbox"] {
                         width: 24px;
                         height: 24px;

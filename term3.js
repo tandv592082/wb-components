@@ -1,6 +1,10 @@
 const TERMS = {
     vi: [
         {
+            cancel: 'Hủy',
+            screen: 'Điều khoản sử dụng',
+            title: 'Đồng ý với điều kiện và điều khoản',
+            all: 'Đồng ý tất cả',
             sumary: 'Điều kiện điều khoản dịch vụ Internet/Mobile Banking',
             details: [
                 `[TITLE]Điều 1: Định nghĩa`,
@@ -330,6 +334,10 @@ const TERMS = {
     ],
     en: [
         {
+            cancel: 'Cancel',
+            screen: 'Terms of use',
+            title: 'Agree to the terms and conditions to proceed',
+            all: 'Agree to all',
             sumary: 'Internet/Mobile Banking terms and conditions',
             details: [
                 `[TITLE]Article 1: Interpretation`,
