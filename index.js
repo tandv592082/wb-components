@@ -71,7 +71,7 @@ $('.term__sumary__text').each(function (index) {
     $(this).click(function (e) {
         e.preventDefault();
 
-        $(this).parent().siblings('.term__details').css('max-height', globExpaned[index] ? 0 : '9999px');
+        $(this).parent().siblings('.term__details').css('max-height', globExpaned[index] ? 0 : '999999px');
 
         if (globExpaned[index]) {
             $(this).find('.expaned-icon').removeClass('expaned');

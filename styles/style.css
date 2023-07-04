@@ -117,6 +117,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   flex: 1;
 }
 #wb-screen__popup #popup-content .term__sumary__text p {
@@ -124,6 +125,7 @@ body {
   padding: 0;
   color: #828282;
   font-size: 14px;
+  margin-right: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
@@ -132,10 +134,11 @@ body {
   background-image: url("../assets/icons/expaned-down.svg");
   height: 8px;
   width: 12px;
+  position: absolute;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  margin-left: 12px;
+  right: 0;
   transition: transform 0.3s;
 }
 #wb-screen__popup #popup-content .term__sumary__text .expaned-icon.expaned {
