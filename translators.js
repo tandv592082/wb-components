@@ -12,6 +12,12 @@ if(!locale || locale?.toLowerCase()?.startsWith('vi')) {
     data = TERMS['en'];
 }
 
+$('#popup-header__title p').text(data.configs.screen);
+$('#popup-header__cancle p').text(data.configs.cancel);
+$('.popup-content__title p').text(data.configs.title);
+$('.term__sumary__text .text-all').text(data.configs.all);
+$('#popup-footer__button').text(data.configs.button);
+
 //term__details__title
 //term__details
 const wrap = (elmStart, content, elemEnd) => {
@@ -58,7 +64,7 @@ const createSubTermCheckBox = (content, id) => {
     `
 }
 
-const termXX = data.map((term, index) => {
+const termXX = data.data.map((term, index) => {
     let sumaryTerm = createTermSumaryElm(term.sumary, index);
     let detailTerm = '';
 
