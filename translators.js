@@ -24,11 +24,10 @@ const wrap = (elmStart, content, elemEnd) => {
     return `${elmStart}${content}${elemEnd}`
 }
 
-const createTermSumaryElm = (title, id) => {
+const createTermSumaryElm = (title) => {
     return `
     <div class="term__sumary">
         <div class="term__checkbox">
-            <input id="check-term-${id}" type="checkbox" class="term__input">
             <span class="checkbox-icon"></span>
         </div>
         <div class="term__sumary__text">
@@ -50,11 +49,10 @@ const createSubTermTitle = (title) => {
     return wrap(`<p class="term__details__title">`, title, `</p>`);
 }
 
-const createSubTermCheckBox = (content, id) => {
+const createSubTermCheckBox = (content) => {
     return `
     <div class="sub-term">
         <div class="term__checkbox">
-            <input  type="checkbox" class="term__input" sub-term-for="check-term-${id}">
             <span class="checkbox-icon"></span>
         </div>
         <p>

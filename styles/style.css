@@ -59,7 +59,8 @@ body {
   font-weight: 400;
   line-height: normal;
 }
-#wb-screen__popup #popup-content {
+
+#popup-content {
   width: 100%;
   flex: 1;
   border-radius: 30px 30px 0px 0px;
@@ -71,13 +72,13 @@ body {
   overflow: hidden;
   z-index: 0;
 }
-#wb-screen__popup #popup-content .popup-content__wrapper {
+#popup-content .popup-content__wrapper {
   flex: 1;
   z-index: 1;
   overflow-y: scroll;
   padding: 24px 0;
 }
-#wb-screen__popup #popup-content .popup-content__wrapper:before, #wb-screen__popup #popup-content .popup-content__wrapper:after {
+#popup-content .popup-content__wrapper:before, #popup-content .popup-content__wrapper:after {
   content: "";
   display: inline-block;
   width: 100%;
@@ -85,21 +86,21 @@ body {
   position: absolute;
   z-index: 99;
 }
-#wb-screen__popup #popup-content .popup-content__wrapper:before {
+#popup-content .popup-content__wrapper:before {
   background-image: linear-gradient(to bottom, white, transparent);
   top: 0;
   left: 0;
 }
-#wb-screen__popup #popup-content .popup-content__wrapper:after {
+#popup-content .popup-content__wrapper:after {
   background-image: linear-gradient(to top, white, transparent);
   bottom: 0;
   left: 0;
 }
-#wb-screen__popup #popup-content .popup-content__title {
+#popup-content .popup-content__title {
   text-align: center;
   padding: 0 94px;
 }
-#wb-screen__popup #popup-content .popup-content__title p {
+#popup-content .popup-content__title p {
   text-align: center;
   color: #828282;
   font-size: 16px;
@@ -109,10 +110,10 @@ body {
   margin: 0;
   padding: 0;
 }
-#wb-screen__popup #popup-content .term {
+#popup-content .term {
   width: 100%;
 }
-#wb-screen__popup #popup-content .term__sumary {
+#popup-content .term__sumary {
   display: flex;
   padding: 15px 12px;
   align-items: center;
@@ -121,7 +122,7 @@ body {
   border-radius: 10px;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
 }
-#wb-screen__popup #popup-content .term__sumary__text {
+#popup-content .term__sumary__text {
   margin-left: 12px;
   display: flex;
   justify-content: space-between;
@@ -129,7 +130,7 @@ body {
   position: relative;
   flex: 1;
 }
-#wb-screen__popup #popup-content .term__sumary__text p {
+#popup-content .term__sumary__text p {
   margin: 0;
   padding: 0;
   color: #828282;
@@ -139,7 +140,7 @@ body {
   font-weight: 400;
   line-height: 16px;
 }
-#wb-screen__popup #popup-content .term__sumary__text .expaned-icon {
+#popup-content .term__sumary__text .expaned-icon {
   background-image: url("../assets/icons/expaned-down.svg");
   height: 8px;
   width: 8px;
@@ -150,10 +151,10 @@ body {
   right: 0;
   transition: transform 0.3s;
 }
-#wb-screen__popup #popup-content .term__sumary__text .expaned-icon.expaned {
+#popup-content .term__sumary__text .expaned-icon.expaned {
   transform: rotateX(-180deg) translateY(0px);
 }
-#wb-screen__popup #popup-content .term__checkbox {
+#popup-content .term__checkbox {
   width: 24px;
   height: 24px;
   display: flex;
@@ -161,9 +162,9 @@ body {
   justify-content: flex-end;
   position: relative;
 }
-#wb-screen__popup #popup-content .term__checkbox input[type=checkbox] {
-  width: 18px;
-  height: 18px;
+#popup-content .term__checkbox input[type=checkbox] {
+  width: 12px;
+  height: 12px;
   position: absolute;
   opacity: 0;
   z-index: 1;
@@ -172,29 +173,29 @@ body {
           appearance: none;
   -webkit-tap-highlight-color: transparent;
 }
-#wb-screen__popup #popup-content .term__checkbox .checkbox-icon {
+#popup-content .term__checkbox .checkbox-icon {
   height: 18px;
   z-index: 0;
-  width: 18px;
+  width: 12px;
   border-radius: 50%;
   top: 3px;
   position: absolute;
   right: 0;
-  background-image: url(../assets/icons/check-circle-disabled.svg);
+  background-image: url(../assets/icons/single-check-disabled.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
-#wb-screen__popup #popup-content .term__checkbox input[type=checkbox]:checked ~ .checkbox-icon {
-  background-image: url(../assets/icons/check-circle-active.svg);
+#popup-content .term__checkbox input[type=checkbox]:checked ~ .checkbox-icon {
+  background-image: url(../assets/icons/single-check-active.svg);
 }
-#wb-screen__popup #popup-content .term__details {
+#popup-content .term__details {
   margin: 0 30px;
   overflow: hidden;
   max-height: 0;
   position: relative;
 }
-#wb-screen__popup #popup-content .term__details p {
+#popup-content .term__details p {
   margin: 14px 0 0 0;
   color: #828282;
   font-size: 14px;
@@ -203,63 +204,64 @@ body {
   line-height: 20px;
   flex: 1;
 }
-#wb-screen__popup #popup-content .term__details__title {
+#popup-content .term__details__title {
   margin: 24px 0 0 0 !important;
   padding: 0;
   font-weight: 700 !important;
 }
-#wb-screen__popup #popup-content .term__details .sub-term {
+#popup-content .term__details .sub-term {
   display: flex;
   align-items: center;
   position: relative;
   padding: 8px 0;
 }
-#wb-screen__popup #popup-content .term__details .sub-term p {
+#popup-content .term__details .sub-term p {
   margin: 0 0 0 18px;
 }
-#wb-screen__popup #popup-content .term__details .sub-term .checkbox-icon {
+#popup-content .term__details .sub-term .checkbox-icon {
   left: 0;
 }
-#wb-screen__popup #popup-content .term.term-all .term__sumary {
+#popup-content .term.term-all .term__sumary {
   box-shadow: none;
   margin-bottom: 18px;
 }
-#wb-screen__popup #popup-content .term.term-all .term__sumary__text p {
+#popup-content .term.term-all .term__sumary__text p {
   font-size: 18px;
   color: #649EFF;
   font-style: normal;
   font-weight: 700;
   line-height: 22px;
 }
-#wb-screen__popup #popup-content .term.term-all .term__sumary__text .expaned-icon {
+#popup-content .term.term-all .term__sumary__text .expaned-icon {
   display: none;
 }
-#wb-screen__popup #popup-content .term.term-all .term__checkbox input[type=checkbox] {
+#popup-content .term.term-all .term__checkbox input[type=checkbox] {
   width: 24px;
   height: 24px;
   position: absolute;
   opacity: 0;
   z-index: 1;
 }
-#wb-screen__popup #popup-content .term.term-all .term__checkbox .checkbox-icon {
+#popup-content .term.term-all .term__checkbox .checkbox-icon {
   height: 24px;
   width: 24px;
   top: 0;
   right: 0;
   background-image: url(../assets/icons/double-check-circle-disabled.svg);
 }
-#wb-screen__popup #popup-content .term.term-all .term__checkbox input[type=checkbox]:checked ~ .checkbox-icon {
+#popup-content .term.term-all .term__checkbox input[type=checkbox]:checked ~ .checkbox-icon {
   background-image: url(../assets/icons/double-check-circle-active.svg);
 }
-#wb-screen__popup #popup-content .term:not(last-child) {
+#popup-content .term:not(last-child) {
   margin-bottom: 18px;
 }
-#wb-screen__popup #popup-footer {
+
+#popup-footer {
   width: 100%;
   background: white;
   display: flex;
 }
-#wb-screen__popup #popup-footer__button {
+#popup-footer__button {
   flex: 1;
   border-radius: 15px;
   background: #649EFF;
@@ -275,6 +277,6 @@ body {
   font-weight: 700;
   line-height: 22px;
 }
-#wb-screen__popup #popup-footer__button:disabled {
+#popup-footer__button:disabled {
   background-color: #BDBDBD;
 }/*# sourceMappingURL=style.css.map */

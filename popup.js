@@ -117,7 +117,7 @@ class Popup {
 
     static postMessageToParent(payload, url = '*') { 
         try {
-            if (window) {
+            if (window?.parent) {
                 window.parent.postMessage(payload, url);
                 return;
             }
